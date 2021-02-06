@@ -17,9 +17,22 @@ namespace Business.Concrete
 
         public void Add(Car car)
         {
-            _carDal.Add(car);
+            if (car.Description.Length<2 || car.Description.StartsWith(" "))
+            {
+                Console.WriteLine("Please Enter a name bigger than 2 characters and not whitespace");
+            }
+            else if (car.DailyPrice<=0)
+            {
+                Console.WriteLine("Please enter a Dailyprice bigger than 0");
+            }
+            else
+            {
+                _carDal.Add(car);
+              
+            }
         }
 
+     
         public void Delete(Car car)
         {
             _carDal.Delete(car);
@@ -30,9 +43,14 @@ namespace Business.Concrete
             return _carDal.GetAll();
         }
 
-        public Car GetById(int Id)
+        public List<Car> GetCarsBrandId(int id)
         {
-            return _carDal.GetById(Id);
+            return _carDal.GetAll(p => p.BrandId == id);
+        }
+
+        public List<Car> GetCarsColorId(int id)
+        {
+            return _carDal.GetAll(p => p.ColorId == id);
         }
 
         public void Update(Car car)
