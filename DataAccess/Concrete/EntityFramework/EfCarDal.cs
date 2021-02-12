@@ -14,21 +14,21 @@ namespace DataAccess.Concrete.EntityFramework
     public class EfCarDal : EfEntityRepositoryBase<Car,NorthwindContext>,ICarDal
     {
      
-        public List<CarDetailDto> GetCarDetails()
-        {
-            using (NorthwindContext context=new NorthwindContext())
-            {
+        //public List<CarDetailDto> GetCarDetails()
+        //{
+        //    using (NorthwindContext context=new NorthwindContext())
+        //    {
                 
 
 
 
 
-            }
+        //    }
 
             
 
 
-        }
+        //}
 
 
     }
